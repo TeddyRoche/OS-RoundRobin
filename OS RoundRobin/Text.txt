@@ -1,0 +1,27 @@
+    Processes:
+        In the context of the round-robin scheduling algorithm, "processes" refer to the tasks or jobs that need to be executed by the system.
+        Each process typically has attributes such as its name, arrival time (when it enters the system), burst time (how long it needs to execute), 
+        and remaining time (how much time is left to complete it).
+        In the provided code, processes is a list or array containing all the processes that need to be scheduled for execution.
+
+    Time Quantum:
+        The time quantum is a parameter used in the round-robin scheduling algorithm.
+        It represents the maximum amount of time each process is allowed to execute in one time slice or quantum.
+        When a process is scheduled for execution, it runs for the duration of the time quantum.
+        If the process completes within the time quantum, it is removed from the CPU, allowing the next process in the queue to execute.
+        If the process still has remaining execution time after the time quantum elapses, it is put back into the queue to be executed later.
+        In the provided code, timeQuantum is a variable representing the time quantum value used in the scheduling algorithm.
+
+    Queue:
+        A queue is a data structure that follows the First-In-First-Out (FIFO) principle, meaning the first element added to the queue is the 
+        first one to be removed.
+        In the context of the round-robin scheduling algorithm, a queue is used to hold processes that are ready to execute but have not yet been assigned CPU time.
+        As processes arrive or complete their execution, they are enqueued or dequeued from this queue accordingly.
+        In the provided code, queue refers to a queue data structure (either custom or from the standard library) used to hold processes that are ready to execute.
+
+    Current Time:
+        current_time is a variable used to keep track of the passage of time during the scheduling process. 
+        It represents the current time in the system clock or simulation clock.
+        As the round-robin scheduling algorithm progresses, current_time is incremented whenever a process completes its execution 
+        or when there are no processes ready to execute at the current time slice.
+        In the provided code, current_time is a variable used to track the progress of time during the scheduling algorithm execution.
