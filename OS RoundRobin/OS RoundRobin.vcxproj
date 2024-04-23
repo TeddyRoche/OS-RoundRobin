@@ -129,12 +129,15 @@
   <ItemGroup>
     <ClCompile Include="MLFQ.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
+    <ClCompile Include="SRTF.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="MLFQ_Notes.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MLFQ.h" />
+    <ClInclude Include="SRTF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

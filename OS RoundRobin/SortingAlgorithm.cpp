@@ -1,11 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <mutex>
 #include <thread>
-#include <chrono>
+#include "MLFQ.cpp"
 
 using namespace std;
-
 
 
 int main()

@@ -1,0 +1,32 @@
+    Initialization:
+        MLFQ initializes several queues, each with its own priority level. Typically, there's a higher priority queue with a shorter time quantum and lower priority queues with longer time quanta.
+
+    Process Arrival:
+        When a new process arrives in the system, it's initially placed in the highest priority queue.
+
+    Scheduling Decision:
+        The scheduler selects the process from the highest priority non-empty queue for execution.
+        If multiple queues contain processes, the scheduler typically selects the one with the highest priority.
+        The scheduling decision may depend on various factors such as process priority, time spent in the queue, etc.
+
+    Time Quantum and Preemption:
+        Each queue is associated with a specific time quantum, determining how long a process can execute before being preempted.
+        If a process consumes its entire time quantum without completing, it's preempted and moved to the next lower priority queue.
+        Preemption involves saving the process state and context switching to another process.
+
+    Priority Adjustment:
+        MLFQ adjusts the priority of processes dynamically based on their behavior.
+        Processes that frequently use the CPU may be demoted to lower priority queues to provide fair CPU access to other processes.
+        Conversely, processes that perform I/O operations or exhibit other behaviors may be promoted to higher priority queues.
+
+    Feedback Mechanism:
+        MLFQ employs a feedback mechanism to adapt to the behavior of processes over time.
+        For example, if a process frequently exhausts its time quantum without completing, it may be demoted to a lower priority queue.
+        On the other hand, if a process frequently relinquishes the CPU voluntarily, it may be promoted to a higher priority queue.
+
+    Starvation Prevention:
+        MLFQ often incorporates mechanisms to prevent starvation, ensuring that processes in lower priority queues eventually receive CPU time.
+        This may involve techniques such as priority aging, where the priority of a process increases the longer it waits in a lower priority queue.
+
+    Dynamic Adaptation:
+        MLFQ continuously adapts its scheduling parameters based on system load and process behavior to optimize performance under varying conditions.

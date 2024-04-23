@@ -21,14 +21,23 @@
     <ClCompile Include="MLFQ.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SRTF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="MLFQ_Notes.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MLFQ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SRTF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
