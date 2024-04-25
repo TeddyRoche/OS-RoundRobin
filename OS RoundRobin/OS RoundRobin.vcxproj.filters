@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SortingAlgorithm.cpp">
+    <ClCompile Include="OS RoundRobin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MLFQ.cpp">
@@ -32,13 +32,16 @@
     <Text Include="MLFQ_Notes.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="MLFQ_Test_File.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MLFQ.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SRTF.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MLFQ.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -128,11 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MLFQ.cpp" />
-    <ClCompile Include="SortingAlgorithm.cpp" />
+    <ClCompile Include="OS RoundRobin.cpp" />
     <ClCompile Include="SRTF.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="MLFQ_Notes.txt" />
+    <Text Include="MLFQ_Test_File.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
