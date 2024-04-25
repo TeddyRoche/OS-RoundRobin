@@ -33,7 +33,7 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="MLFQ_Test_File.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
@@ -41,7 +41,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MLFQ.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
