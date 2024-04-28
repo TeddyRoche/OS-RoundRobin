@@ -7,19 +7,23 @@
 
 std::vector<Process> processes;
 
-int ReadFile(std::string file) {
+int ReadFile(std::string file) 
+{
     std::ifstream inputFile(file);
 
-    if (!inputFile.is_open()) {
+    if (!inputFile.is_open()) 
+    {
         std::cerr << "Error: Unable to open file." << std::endl;
         return 1;
     }
 
     std::string line;
-    while (std::getline(inputFile, line)) {
+    while (std::getline(inputFile, line)) 
+    {
         std::istringstream iss(line);
         int pid, arrival, burst, priority;
-        if (!(iss >> pid >> arrival >> burst >> priority)) {
+        if (!(iss >> pid >> arrival >> burst >> priority)) 
+        {
             std::cerr << "Error: Invalid input format." << std::endl;
             return 1;
         }

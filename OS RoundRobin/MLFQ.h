@@ -4,7 +4,8 @@
 
 #include <vector>
 
-struct Process {
+struct Process 
+{
     int processID;
     int arrivalTime;
     int burstTime;
@@ -14,7 +15,8 @@ struct Process {
         processID(id), arrivalTime(arrival), burstTime(burst), priority(prio) {}
 };
 
-class MLFQ {
+class MLFQ
+{
 private:
     std::vector<Process> processes;
     std::vector<Process> queue0; // Highest priority
