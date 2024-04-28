@@ -7,10 +7,8 @@
 #include <iomanip>
 #include <vector>
 
-// Mutex for ensuring thread-safe access to cout
 std::mutex coutMutex;
 
-// Named constants
 const int MAX_PROCESS_ID_WIDTH = 10;
 const int MAX_TIMESTAMP_LENGTH = 10;
 
