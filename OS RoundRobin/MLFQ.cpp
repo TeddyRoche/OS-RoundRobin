@@ -14,11 +14,21 @@ std::mutex coutMutex;
 const int MAX_PROCESS_ID_WIDTH = 10;
 const int MAX_TIMESTAMP_LENGTH = 10;
 
+const std::string RESET_Color = "\033[0m";
+const std::string RED_Color = "\033[1;31m";
+const std::string GREEN_Color = "\033[1;32m";
+const std::string YELLOW_Color = "\033[1;33m";
+const std::string BLUE_Color = "\033[1;34m";
+
+
+
+
+
 // Helper function to print column headers
 void printColumnHeaders() 
 {
     std::lock_guard<std::mutex> lock(coutMutex);
-    std::cout << "\033[0m" << std::right << "Event" << std::setw(25) << "\033[0m" << std::right << "Process ID" << std::endl;
+    std::cout << RESET_Color << std::right << "Event" << std::setw(25) << RESET_Color << std::right << "Process ID" << std::endl;
 }
 
 // Helper function to print process message
@@ -31,13 +41,13 @@ void printProcessMessage(const std::string& message, const Process& process, con
 // Helper function to execute process
 void executeProcess(const Process& process, int& currentTime) 
 {
-    printProcessMessage("Arrival:\t\t", process, "\033[1;33m");
-    printProcessMessage("Execution Start:\t", process, "\033[1;34m");
+    printProcessMessage("Arrival:\t\t", process, YELLOW_Color);
+    printProcessMessage("Execution Start:\t", process, BLUE_Color);
 
     std::this_thread::sleep_for(std::chrono::seconds(process.burstTime));
     currentTime += process.burstTime;
 
-    printProcessMessage("Execution End:\t\t", process, "\033[1;32m");
+    printProcessMessage("Execution End:\t\t", process, GREEN_Color);
 }
 
 MLFQ::MLFQ(std::vector<Process>& procs) : processes(procs) {}
@@ -82,7 +92,7 @@ void MLFQ::runMLFQ()
             catch (const std::exception& e) 
             {
                 std::lock_guard<std::mutex> lock(coutMutex);
-                std::cerr << "\033[1;31mError: " << e.what() << "\033[0m" << std::endl;
+                std::cerr << RED_Color << "Error: " << e.what() << RESET_Color << std::endl;
             }
             });
     }
@@ -99,7 +109,7 @@ void MLFQ::runMLFQ()
 
     
     std::lock_guard<std::mutex> lock(coutMutex);
-    std::cout << "\033[1;32m"; 
+    std::cout << GREEN_Color;
     std::cout << "Total execution time: " << totalTime << " seconds\n";
-    std::cout << "All processes finished.\033[0m\n"; 
+    std::cout << "All processes finished.\n" << RESET_Color;
 }
