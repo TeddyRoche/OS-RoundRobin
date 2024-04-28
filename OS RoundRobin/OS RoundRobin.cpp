@@ -7,6 +7,14 @@
 
 std::vector<Process> processes;
 
+const std::string RESET_Color = "\033[0m";
+const std::string RED_Color = "\033[1;31m";
+const std::string GREEN_Color = "\033[1;32m";
+const std::string YELLOW_Color = "\033[1;33m";
+const std::string BLUE_Color = "\033[1;34m";
+const std::string MAGNETA_Color = "\033[1;35m";
+const std::string CYAN_Color = "\033[1;36m";
+
 int ReadFile(std::string file) 
 {
     std::ifstream inputFile(file);
@@ -34,10 +42,43 @@ int ReadFile(std::string file)
 
 int main()
 {
-    ReadFile("MLFQ_Test_File.txt");
+    int choice;
+    std::cout << CYAN_Color << "Choose who's Code you want to run:\n" << GREEN_Color << "Teddy(1)" << RESET_Color 
+        << "," << YELLOW_Color << " Dylan(2)" << RESET_Color << "," << BLUE_Color << " Joseph(3)" << 
+        RESET_Color << ", or" << MAGNETA_Color << " Duc(4)" << RESET_Color << ": ";
+    std::cin >> choice;
 
-    MLFQ mlfq(processes);
-    mlfq.runMLFQ();
+    switch (choice)
+    {
+        case 1:
+        {
+            ReadFile("MLFQ_Test_File.txt");
+            
+            MLFQ mlfq(processes);
+            mlfq.runMLFQ();
+            break;
+        }
+        case 2:
+        {
+
+            break;
+        }
+        case 3:
+        {
+
+            break;
+        }
+        case 4:
+        {
+
+            break;
+        }
+        default: 
+        {
+            std::cout << RED_Color << "Error Invalid Input!" << RESET_Color;
+            break;
+        }
+    }
 
     return 0;
     

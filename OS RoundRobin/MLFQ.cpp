@@ -10,6 +10,7 @@ const std::string RED_Color = "\033[1;31m";
 const std::string GREEN_Color = "\033[1;32m";
 const std::string YELLOW_Color = "\033[1;33m";
 const std::string BLUE_Color = "\033[1;34m";
+const std::string CYAN_Color = "\033[1;36m";
 
 const double BASE_FREQUENCY = 2.5; 
 const double MAX_FREQUENCY = 4.0; 
@@ -31,9 +32,10 @@ void adjustCPUFrequency(int burstTime)
 void printColumnHeaders()
 {
     std::lock_guard<std::mutex> lock(coutMutex);
-    std::cout << RESET_Color << std::right << "Event" << std::setw(21) << RESET_Color 
-        << std::right << "| Process ID" << std::setw(17) << "| Frequency" << std::setw(18) << "| Time\t\t   |" 
-        << std::endl;
+    std::cout << std::endl << CYAN_Color << std::right << "Event" << std::setw(21) << RESET_Color
+        << "| " << CYAN_Color << "Process ID" << std::setw(9) << RESET_Color << 
+        " | " << CYAN_Color << "Frequency" << std::setw(9) << RESET_Color << " | " << CYAN_Color << "Time\t\t" << RESET_Color 
+        << "   | " << std::endl;
     std::cout << "----------------------------------------------------------------------------\n";
 }
 
