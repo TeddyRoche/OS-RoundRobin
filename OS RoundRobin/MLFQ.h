@@ -2,7 +2,14 @@
 #ifndef MLFQ_H
 #define MLFQ_H
 
+#include <iostream>
+#include <algorithm>
+#include <thread>
+#include <mutex>
+#include <chrono>
+#include <iomanip>
 #include <vector>
+#include <sstream>
 
 struct Process 
 {
