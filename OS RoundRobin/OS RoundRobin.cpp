@@ -3,7 +3,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
-#include "MLFQ.h"
+#include "MLFQ&DVFS.h"
 
 std::vector<Process> processes;
 
@@ -54,7 +54,7 @@ int main()
         {
             ReadFile("MLFQ_Test_File.txt");
             
-            MLFQ mlfq(processes);
+            MLFQ_DVFS mlfq(processes);
             mlfq.runMLFQ();
             break;
         }

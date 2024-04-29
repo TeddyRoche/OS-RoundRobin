@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MLFQ.cpp" />
+    <ClCompile Include="MLFQ&amp;DVFS.cpp" />
     <ClCompile Include="OS RoundRobin.cpp" />
     <ClCompile Include="SRTF.cpp" />
   </ItemGroup>
@@ -137,7 +137,7 @@
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MLFQ.h" />
+    <ClInclude Include="MLFQ&amp;DVFS.h" />
     <ClInclude Include="SRTF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

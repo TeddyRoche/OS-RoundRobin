@@ -18,7 +18,7 @@
     <ClCompile Include="OS RoundRobin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MLFQ.cpp">
+    <ClCompile Include="MLFQ&amp;DVFS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SRTF.cpp">
@@ -40,7 +40,7 @@
     <ClInclude Include="SRTF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MLFQ.h">
+    <ClInclude Include="MLFQ&amp;DVFS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

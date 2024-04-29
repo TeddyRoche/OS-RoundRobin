@@ -1,26 +1,8 @@
-#include "MLFQ.h"
+#include "MLFQ&DVFS.h"
 
 std::mutex coutMutex;
 
-const int MAX_PROCESS_ID_WIDTH = 10;
-const int MAX_TIMESTAMP_LENGTH = 10;
-
-const std::string RESET_Color = "\033[0m";
-const std::string RED_Color = "\033[1;31m";
-const std::string GREEN_Color = "\033[1;32m";
-const std::string YELLOW_Color = "\033[1;33m";
-const std::string BLUE_Color = "\033[1;34m";
-const std::string CYAN_Color = "\033[1;36m";
-
-const double BASE_FREQUENCY = 2.5; 
-const double MAX_FREQUENCY = 4.0; 
-const double MIN_FREQUENCY = 1.0; 
-const double BASE_POWER = 50.0;   
-const double VOLTAGE_CONSTANT = 0.2; 
-const int MAX_BURST_TIME = 100; 
-
-
-void adjustCPUFrequency(int burstTime)
+void MLFQ_DVFS::adjustCPUFrequency(int burstTime)
 {
     double percentage = static_cast<double>(burstTime) / MAX_BURST_TIME;
     double targetFrequency = MAX_FREQUENCY - percentage * (MAX_FREQUENCY - MIN_FREQUENCY);
@@ -29,7 +11,7 @@ void adjustCPUFrequency(int burstTime)
 }
 
 
-void printColumnHeaders()
+void MLFQ_DVFS::printColumnHeaders()
 {
     std::lock_guard<std::mutex> lock(coutMutex);
     std::cout << std::endl << CYAN_Color << std::right << "Event" << std::setw(21) << RESET_Color
@@ -39,7 +21,8 @@ void printColumnHeaders()
     std::cout << "----------------------------------------------------------------------------\n";
 }
 
-void printProcessMessage(const std::string& message, const Process& process, const std::string& color, const std::string formattedTime)
+void MLFQ_DVFS::printProcessMessage(const std::string& message, const Process& process, 
+    const std::string& color, const std::string formattedTime)
 {
     std::lock_guard<std::mutex> lock(coutMutex);
     std::cout << color << std::right << message << std::right << std::setw(MAX_PROCESS_ID_WIDTH) 
@@ -61,7 +44,7 @@ void printProcessMessage(const std::string& message, const Process& process, con
     }
 }
 
-void executeProcess(const Process& process, int& currentTime)
+void MLFQ_DVFS::executeProcess(const Process& process, int& currentTime)
 {
     auto startTime = std::chrono::steady_clock::now();
 
@@ -91,9 +74,9 @@ void executeProcess(const Process& process, int& currentTime)
     printProcessMessage("Execution End:\t", process, GREEN_Color, formattedTime);
 }
 
-MLFQ::MLFQ(std::vector<Process>& procs) : processes(procs) {}
+MLFQ_DVFS::MLFQ_DVFS(std::vector<Process>& procs) : processes(procs) {}
 
-void MLFQ::runMLFQ()
+void MLFQ_DVFS::runMLFQ()
 {
     auto startTime = std::chrono::steady_clock::now();
 
