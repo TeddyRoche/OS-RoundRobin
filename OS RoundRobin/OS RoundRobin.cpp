@@ -4,9 +4,10 @@
 #include <vector>
 #include <string>
 #include "MLFQ&DVFS.h"
+#include "PS.h"
 
 std::vector<Process> processes;
-std::vector<P> process;
+std::vector<Pro> process;
 
 const std::string RESET_Color = "\033[0m";
 const std::string RED_Color = "\033[1;31m";
