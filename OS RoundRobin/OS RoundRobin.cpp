@@ -4,8 +4,10 @@
 #include <vector>
 #include <string>
 #include "MLFQ&DVFS.h"
+#include "PS.h"
 
 std::vector<Process> processes;
+std::vector<Pro> process;
 
 const std::string RESET_Color = "\033[0m";
 const std::string RED_Color = "\033[1;31m";
@@ -36,6 +38,7 @@ int ReadFile(std::string file)
             return 1;
         }
         processes.emplace_back(pid, arrival, burst, priority);
+        process.emplace_back(pid, arrival, burst, priority);
     }
     return 0;
 }
@@ -70,7 +73,9 @@ int main()
         }
         case 4:
         {
-
+            ReadFile("MLFQ_Test_File.txt");
+            
+            pScheduling(process);
             break;
         }
         default: 
