@@ -3,17 +3,17 @@
 
 #include <vector>
 
-struct P
+struct Pro
 {
     int pID, aTime, bTime, priority;
 };
 
-bool compare(const P& a, const P& b);
+bool compare(const Pro& a, const Pro& b);
 
-void calcTimes(std::vector<P>& process, std::vector<int>& qTime, std::vector<int>& tTime);
+void calcTimes(std::vector<Pro>& process, std::vector<int>& qTime, std::vector<int>& tTime);
 
-void chart(const std::vector<P>& process, const std::vector<int>& qTime, const std::vector<int>& tTime);
+void chart(const std::vector<Pro>& process, const std::vector<int>& qTime, const std::vector<int>& tTime);
 
-void pScheduling(std::vector<P> process);
+void pScheduling(std::vector<Pro> process);
 
 #endif // PROCESS_SCHEDULING_H
