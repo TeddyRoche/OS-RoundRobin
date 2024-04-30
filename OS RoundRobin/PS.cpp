@@ -5,7 +5,7 @@
 #include <chrono>
 #include <thread>
 
-bool compare(const P& a, const P& b)
+bool compare(const Pro& a, const Pro& b)
 {
     if (a.priority == b.priority)
     {
@@ -14,7 +14,7 @@ bool compare(const P& a, const P& b)
     return a.priority < b.priority;
 }
 
-void calcTimes(std::vector<P>& process, std::vector<int>& qTime, std::vector<int>& tTime)
+void calcTimes(std::vector<Pro>& process, std::vector<int>& qTime, std::vector<int>& tTime)
 {
     int n = process.size();
     qTime.resize(n);
@@ -30,7 +30,7 @@ void calcTimes(std::vector<P>& process, std::vector<int>& qTime, std::vector<int
     }
 }
 
-void chart(const std::vector<P>& process, const std::vector<int>& qTime, const std::vector<int>& tTime)
+void chart(const std::vector<Pro>& process, const std::vector<int>& qTime, const std::vector<int>& tTime)
 {
     int n = process.size();
     int totalQTime = 0, totalTTime = 0;
@@ -56,7 +56,7 @@ void chart(const std::vector<P>& process, const std::vector<int>& qTime, const s
     std::cout << "Average turnaround time: " << totalTTime << std::endl;
 }
 
-void pScheduling(std::vector<P> process)
+void pScheduling(std::vector<Pro> process)
 {
 
     std::vector<int> qTime, turnaroundTime; 
