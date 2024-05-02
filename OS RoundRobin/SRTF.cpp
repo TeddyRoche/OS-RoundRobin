@@ -1,6 +1,6 @@
 ﻿#include "SRTF.h"
 
-SRTF::SRTF(std::vector<Process> processes) : processes(processes) {}
+SRTF::SRTF(std::vector<Process2> processes) : processes(processes) {}
 
 void SRTF::findWaitingTime(int n, int rt[], int wt[], int at[], int bt[]) 
 {
