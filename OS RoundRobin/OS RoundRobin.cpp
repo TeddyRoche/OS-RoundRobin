@@ -5,9 +5,14 @@
 #include <string>
 #include "MLFQ&DVFS.h"
 #include "PS.h"
+#include "SRTF.h"
+#include "RoundRobinDylan.h"
 
 std::vector<Process> processes;
 std::vector<Process1> process;
+std::vector<Process2> process2;
+std::vector<Process3> process3;
+
 
 const std::string RESET_Color = "\033[0m";
 const std::string RED_Color = "\033[1;31m";
@@ -39,6 +44,8 @@ int ReadFile(std::string file)
         }
         processes.emplace_back(pid, arrival, burst, priority);
         process.emplace_back(pid, arrival, burst, priority);
+        process3.emplace_back(pid, arrival, burst);
+
     }
     return 0;
 }
@@ -63,6 +70,11 @@ int main()
         }
         case 2:
         {
+            ReadFile("MLFQ_Test_File.txt");
+
+            int quantum = 3; // Example quantum time slice
+            RoundRobin rr(process3, quantum);
+            rr.runRoundRobin();
 
             break;
         }

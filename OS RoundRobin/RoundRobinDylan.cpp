@@ -1,4 +1,4 @@
-#include "RoundRobin.h"
+#include "RoundRobinDylan.h"
 #include <iostream>
 #include <mutex>
 #include <chrono>
@@ -8,10 +8,10 @@
 #include <iomanip>
 #include <sstream>
 
-std::mutex coutMutex;
+std::mutex coutMutex1;
 
 void RoundRobin::printColumnHeaders() {
-    std::lock_guard<std::mutex> lock(coutMutex);
+    std::lock_guard<std::mutex> lock(coutMutex1);
     std::cout << std::endl << CYAN_Color << std::right << "Event" << std::setw(21) << RESET_Color
               << "| " << CYAN_Color << "Process ID" << std::setw(9) << RESET_Color <<
               " | " << CYAN_Color << "Remaining Time" << std::setw(9) << RESET_Color << " | " << CYAN_Color << "Time\t\t" << RESET_Color
@@ -19,16 +19,16 @@ void RoundRobin::printColumnHeaders() {
     std::cout << "----------------------------------------------------------------------------\n";
 }
 
-void RoundRobin::printProcessMessage(const std::string& message, const Process& process, 
+void RoundRobin::printProcessMessage(const std::string& message, const Process3& process, 
                                      const std::string& color, const std::string formattedTime) {
-    std::lock_guard<std::mutex> lock(coutMutex);
+    std::lock_guard<std::mutex> lock(coutMutex1);
     std::cout << color << std::right << message << std::setw(15) << RESET_Color << "| "
               << "Process " << std::setw(2) << process.processID << "\t" << RESET_Color << "|"
               << "\t\t" << color << " Time: " << formattedTime << RESET_Color << "  |";
     std::cout << std::endl << std::flush;
 }
 
-void RoundRobin::executeProcess(const Process& process, int& currentTime) {
+void RoundRobin::executeProcess(const Process3& process, int& currentTime) {
     int remainingTime = process.burstTime;
     while (remainingTime > 0) {
         auto startTime = std::chrono::steady_clock::now();
@@ -46,7 +46,7 @@ void RoundRobin::executeProcess(const Process& process, int& currentTime) {
     }
 }
 
-RoundRobin::RoundRobin(std::vector<Process>& procs, int quantum) : processes(procs), quantum(quantum) {}
+RoundRobin::RoundRobin(std::vector<Process3>& procs, int quantum) : processes(procs), quantum(quantum) {}
 
 void RoundRobin::runRoundRobin() {
     auto startTime = std::chrono::steady_clock::now();
@@ -70,11 +70,3 @@ void RoundRobin::runRoundRobin() {
     std::cout << "Total Execution Time: " << totalDuration << " seconds" << std::endl;
 }
 
-int main() {
-    // Test data for independent execution
-    std::vector<Process> testProcesses = {{1, 0, 10, 2}, {2, 1, 5, 3}, {3, 2, 8, 1}};
-    int quantum = 3; // Example quantum time slice
-    RoundRobin rr(testProcesses, quantum);
-    rr.runRoundRobin();
-    return 0;
-}
