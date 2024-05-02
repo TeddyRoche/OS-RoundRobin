@@ -21,7 +21,7 @@ const std::string CYAN_Color = "\033[1;36m";
 
 struct Process 
 {
-    int pid
+    int pid;
     int bt;
     int art;
 };
@@ -33,7 +33,7 @@ public:
     void schedule();
 private:
     std::vector<Process> processes;
-    void findWaitingTime(int n, int rt[], int wt[], int at[]);
+    void findWaitingTime(int n, int rt[], int wt[], int at[], int bt[]);
     void findTurnAroundTime(int n, int bt[], int wt[], int tat[]);
 };
 

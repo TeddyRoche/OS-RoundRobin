@@ -1,11 +1,8 @@
 ﻿#include "SRTF.h"
-#include <iostream>
-#include <climits>
-#include <algorithm>
 
 SRTF::SRTF(std::vector<Process> processes) : processes(processes) {}
 
-void SRTF::findWaitingTime(int n, int rt[], int wt[], int at[]) 
+void SRTF::findWaitingTime(int n, int rt[], int wt[], int at[], int bt[]) 
 {
     int complete = 0, t = 0, minm = INT_MAX;
     int shortest = 0, finish_time;
@@ -58,7 +55,8 @@ void SRTF::findTurnAroundTime(int n, int bt[], int wt[], int tat[])
 void SRTF::schedule() 
 {
     int n = processes.size();
-    int rt[n], bt[n], at[n], wt[n], tat[n];
+    std::vector<int> rt(n), bt(n), at(n), wt(n), tat(n);
+
 
     for (int i = 0; i < n; i++) 
     {
@@ -67,8 +65,8 @@ void SRTF::schedule()
         at[i] = processes[i].art;
     }
 
-    findWaitingTime(n, rt, wt, at);
-    findTurnAroundTime(n, bt, wt, tat);
+    findWaitingTime(n, rt.data(), wt.data(), at.data(), bt.data());
+    findTurnAroundTime(n, bt.data(), wt.data(), tat.data());
 
     std::cout << "Processes    Burst Time     Waiting Time     Turn-Around Time\n";
     int total_wt = 0, total_tat = 0;
