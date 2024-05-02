@@ -45,6 +45,7 @@ int ReadFile(std::string file)
         processes.emplace_back(pid, arrival, burst, priority);
         process.emplace_back(pid, arrival, burst, priority);
         process3.emplace_back(pid, arrival, burst);
+        process2.emplace_back(pid, arrival, burst);
 
     }
     return 0;
@@ -80,6 +81,11 @@ int main()
         }
         case 3:
         {
+            ReadFile("MLFQ_Test_File.txt");
+
+            SRTF srtf(process2);
+            srtf.schedule();
+
 
             break;
         }

@@ -14,9 +14,11 @@
 
 struct Process2 
 {
-    int pid
+    int pid;
     int bt;
     int art;
+
+    Process2(int pid, int bt, int art) : pid(pid), bt(bt), art(art) {}
 };
 
 class SRTF 
@@ -25,7 +27,7 @@ public:
     SRTF(std::vector<Process2> processes);
     void schedule();
 private:
-    std::vector<Process> processes;
+    std::vector<Process2> processes;
     void findWaitingTime(int n, int rt[], int wt[], int at[], int bt[]);
     void findTurnAroundTime(int n, int bt[], int wt[], int tat[]);
 };
