@@ -16,12 +16,11 @@ bool compare(const Pro& a, const Pro& b)
 
 void calcTimes(std::vector<Pro>& process, std::vector<int>& qTime, std::vector<int>& tTime)
 {
-    int n = process.size();
-    qTime.resize(n);
-    tTime.resize(n);
+    qTime.resize(process.size());
+    tTime.resize(process.size());
 
     int currentTime = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < process.size(); i++)
     {
         int startTime = std::max(currentTime, process[i].aTime);
         qTime[i] = startTime - process[i].aTime;
