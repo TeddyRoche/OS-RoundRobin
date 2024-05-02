@@ -32,15 +32,21 @@ struct Process {
 
 class RoundRobin {
 public:
+    // Constructor that takes a list of processes and the time quantum
     RoundRobin(std::vector<Process>& procs, int quantum);
+
+    // Starts the round-robin scheduling
     void runRoundRobin();
 
 private:
-    std::vector<Process> processes;
-    int quantum;  // Time slice for each process
+    std::vector<Process> processes;  // List of processes to be scheduled
+    int quantum;  // Time slice for each process in seconds
 
+    // Prints column headers for the round-robin output
     void printColumnHeaders();
+    // Prints a process message update during scheduling
     void printProcessMessage(const std::string& message, const Process& process, const std::string& color, const std::string formattedTime);
+    // Executes a single process for its time slice
     void executeProcess(const Process& process, int& currentTime);
 };
 
