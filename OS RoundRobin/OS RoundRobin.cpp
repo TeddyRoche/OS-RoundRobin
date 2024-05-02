@@ -7,7 +7,7 @@
 #include "PS.h"
 
 std::vector<Process> processes;
-std::vector<Pro> process;
+std::vector<Process1> process;
 
 const std::string RESET_Color = "\033[0m";
 const std::string RED_Color = "\033[1;31m";
@@ -74,6 +74,7 @@ int main()
         case 4:
         {
             ReadFile("MLFQ_Test_File.txt");
+
             
             pScheduling(process);
             break;

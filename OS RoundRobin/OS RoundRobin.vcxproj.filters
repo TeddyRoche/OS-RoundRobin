@@ -24,6 +24,9 @@
     <ClCompile Include="SRTF.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
@@ -41,6 +44,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MLFQ&amp;DVFS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
